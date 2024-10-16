@@ -1,0 +1,79 @@
+\:root
+  --top: 35px
+  --left: 50px
+  --bg: #F5F5F5
+  --light: #FFF
+  --light-hover: #E6E6E6
+  --light-active: #CCC
+  --dark: #BFBFBF
+  --dark-hover: #999
+  --dark-active: #737373
+  --darker: #595959
+  --primary: #D98F80
+  --primary-dark-90: color-mix(in srgb, var(--primary) 90%, #000)
+  --default: #C3D1C0
+  --notice: #E4BAB2
+  --alert: #D98F80
+  --danger: #BB4E38
+  --exDanger: #943D2D
+  --selected: #E2B464
+  --chart: #C76551
+  --chartArea: #DEA599
+  --vs-input-outline: var(--primary) !important
+  --vs-option-selected-color: color-mix(in srgb, #FF775C 40%, #FFF) !important
+  --vs-option-hover-color: color-mix(in srgb, #FF775C 15%, #FFF) !important
+
+*
+  box-sizing: border-box
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  outline: none
+
+html, body
+  width: 100vw
+  min-height: 100vh
+  margin: 0
+  padding: 0
+
+body
+  background: var(--bg)
+
+h1, h2, h3, h4, h5, h6
+  margin: 0
+  line-height: 1.2
+  color: #000
+  letter-spacing: 0.5px
+h1
+  font-size: 56px
+h2
+  font-size: 48px
+h3
+  font-size: 40px
+h4
+  font-size: 32px
+h5
+  font-size: 24px
+h6
+  font-size: 20px
+
+p
+  margin: 0
+
+ul, ol
+  margin: 0
+
+// 捲軸寬度
+::-webkit-scrollbar
+  width: 0
+  height: 0
+  border-radius: 0
+  background-color: #E9E9E9
+// 捲軸本體顏色
+::-webkit-scrollbar-thumb
+  border-radius: 0
+  background-color: #E9E9E9
+//捲軸底色
+::-webkit-scrollbar-track
+  border-radius: 0
+  background-color: #E9E9E9
+

@@ -1,0 +1,222 @@
+@media (max-width: 1300px)
+  h1
+    font-size: 48px
+  h2
+    font-size: 40px
+  .webTitle h3
+    font-size: 24px
+  .info h1 .state
+    font-size: 16px
+    font-weight: 400
+  .card ul, .card .hint p
+    min-width: 150px
+    max-width: 150px
+  .legend
+    right: var(--left)
+    bottom: var(--top)
+    transform: scale(0.9)
+    transform-origin: right
+
+@media (max-width: 1024px)
+  \:root
+    --top: 35px
+    --left: 30px
+  .webTitle .showTime
+    line-height: 1.65
+    font-size: 13px
+  h1
+    font-size: 40px
+  h2
+    font-size: 32px
+  p
+    font-size: 13px
+  .webTitle h3
+    font-size: 22px
+  .explain
+    width: 300px
+  .info h1 .state
+    margin-left: 10px
+    padding: 5px 6px 3px
+    font-size: 14px
+  .card
+    ul, .hint p
+      min-width: 190px
+      max-width: 190px
+    ul li
+      width: 100%
+
+@media (max-width: 900px)
+  h1
+    font-size: 32px
+  h2
+    font-size: 28px
+  p
+    font-size: 12px
+  .legend ul li .title span
+    font-size: 12px
+  .webTitle h3
+    font-size: 20px
+  .explain
+    width: 230px
+  .info, .legend
+    bottom: var(--top)
+  .legend ul
+    flex-direction: column
+
+@media (max-width: 540px)
+  \:root
+    --top: 16px
+    --left: 16px
+  .webTitle
+    .showTime
+      margin-bottom: 7px
+    h1
+      margin-bottom: 2px
+      svg
+        font-size: 24px
+    .showTime, h1, h3
+      position: relative
+      z-index: 2
+  h1
+    font-size: 28px
+  h2
+    padding-left: 2px
+    font-size: 20px
+  .countyKinmenCounty
+    transform: translate(110px, 30px)
+  .countyPenghuCounty
+    transform: translate(10px, 0px)
+  .county .levelIcon path, .county .levelIconBg path
+    transform: scale(0.4) translate(8px, 10px)
+  .explain
+    width: 100vw
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 1
+    margin: 0
+    padding: 112px 20px 20px
+    border-radius: 0
+    &.show
+      background-image: linear-gradient(180deg, var(--bg) 0%, #E9E9E9 112px)
+  .card
+    top: unset
+    bottom: var(--top)
+    transform: translateY(-6px)
+    padding: 13px
+    &.countyBox
+      width: 100vw
+      right: 0
+      bottom: 0
+      transform: translateY(0)
+      border-radius: 0
+      ul
+        min-width: unset
+        max-width: unset
+        li
+          width: calc((100% - 5px) / 2)
+    .hint b
+      font-size: 16px
+  .chart
+    width: 100vw
+    height: 100vh
+    top: 0
+    right: 0
+    gap: 0
+    background-color: #E9E9E9
+    .report
+      border-radius: 0
+    .recommendation
+      border-radius: 0
+      border-top: 2px dotted var(--dark)
+      ul
+        width: 100%
+        gap: 8px
+        li
+          padding: 5px 8px
+          span
+            line-height: 1.5
+  .report
+    .function
+      padding-top: 30px
+      .selectBar
+        flex-wrap: wrap
+        margin: 3px 0 12px
+        gap: 5px
+        .selectItem
+          width: calc(50% - 5px)
+          &:nth-child(1)
+            width: 100%
+  .legend
+    right: unset
+    left: var(--left)
+  .legend ul
+    gap: 5px
+  .info
+    right: var(--left)
+    left: unset
+    transform: translateY(-6px)
+    h1
+      text-align: right
+      .state
+        transform: translateY(-4px)
+        margin-left: 6px
+        padding: 3px 3px 2px
+        font-size: 12px
+
+@media (max-width: 360px)
+  .webTitle
+    &.show
+      h3
+        width: 100%
+    .showTime
+      span, i
+        padding: 0 6px
+    h1
+      font-size: 26px
+      svg
+        margin-left: 6px
+    h3
+      width: 200px
+      line-height: 1.25
+      font-size: 15px
+  .explain
+    padding: 104px 20px 20px
+
+@media (max-width: 360px)
+  .countyLienchiangCounty
+    transform: translate(-50px, 140px)
+  .countyKinmenCounty
+    transform: translate(85px, 30px)
+  .countyPenghuCounty
+    transform: translate(-6px, 12px)
+  .countyText
+    transform: scale(0.95) translate(5%, 2.5%)
+    .countyKinmenCounty
+      transform: translate(22%, 2.5%)
+    .countyKaohsiungCity
+      transform: translate(2%, -2.5%)
+    .countyChanghuaCounty
+      transform: translate(-3%, 0.7%)
+    .countyTaichungCity
+      transform: translate(3%, -0.2%)
+    .countyTaoyuanCity
+      transform: translate(1%, -0.5%)
+    .countyTaipeiCity
+      transform: translate(2.5%, -1.5%)
+    .countyKeelungCity
+      transform: translate(2.5%, 1%)
+    .countyNewTaipeiCity
+      transform: translate(4%, -1.1%)
+    .countyYilanCounty, .countyHualienCounty
+      transform: translate(-2%, 0.5%)
+  .county
+    .levelBg, .levelText
+      font-size: 16px
+    text
+      font-size: 10px
+  .card
+    ul, .hint p
+      min-width: 150px
+      max-width: 150px
+

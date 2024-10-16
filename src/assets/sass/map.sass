@@ -1,0 +1,89 @@
+#taiwanMap
+  width: 100%
+  height: 100%
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 1
+  svg
+    transition: all 0.5s
+
+.county
+  transition: all 0.3s
+  fill: var(--default)
+  cursor: pointer
+  &.default
+    fill: var(--default)
+    .levelIcon path
+      fill: color-mix(in srgb, var(--default) 75%, #705400)
+    .countyLabelBg, .levelBg
+      stroke: color-mix(in srgb, var(--default) 70%, #000)
+  &.notice
+    fill: var(--notice)
+    .levelIcon path
+      fill: color-mix(in srgb, var(--notice) 75%, #705400)
+    .countyLabelBg, .levelBg
+      stroke: color-mix(in srgb, var(--notice) 70%, #000)
+  &.alert
+    fill: var(--alert)
+    .levelIcon path
+      fill: color-mix(in srgb, var(--alert) 74%, #A14700)
+    .countyLabelBg, .levelBg
+      stroke: color-mix(in srgb, var(--alert) 70%, #000)
+  &.danger
+    fill: var(--danger)
+    .levelIcon path
+      fill: color-mix(in srgb, var(--danger) 85%, #D40000)
+    .countyLabelBg, .levelBg
+      stroke: color-mix(in srgb, var(--danger) 70%, #000)
+  &.exDanger
+    fill: var(--exDanger)
+    .levelIcon path
+      fill: color-mix(in srgb, var(--exDanger) 89%, #FFF)
+    .countyLabelBg, .levelBg
+      stroke: color-mix(in srgb, var(--exDanger) 70%, #000)
+  &:hover, &:active
+    fill: var(--light-active)
+  text
+    font-size: 12px
+    fill: #FFF
+    letter-spacing: 1.5px
+  .countyLabelBg, .levelBg
+    transition: all 0.3s
+    stroke-width: 4px
+    stroke-linecap: round
+    stroke-linejoin: round
+  .levelIcon, .levelIconBg
+    background: transparent
+    transition: all 0.3s
+    path
+      transform: scale(0.6)
+  .levelIconBg
+    transition: all 0.3s
+    path
+      transform: scale(0.65)
+      stroke: var(--bg)
+      stroke-width: 2px
+      stroke-linecap: round
+      stroke-linejoin: round
+  .levelBg, .levelText
+    transform: translate(-8px, -14px)
+    font-size: 18px
+    transition: all 0.3s
+    letter-spacing: 1px
+
+.countyLienchiangCounty
+  transform: translate(-30px, 170px)
+.countyKinmenCounty
+  transform: translate(40px, 30px)
+
+.countyBorders
+  fill: none
+  stroke: var(--bg)
+  stroke-width: 2px
+  stroke-linejoin: round
+  stroke-linecap: round
+
+.xAxis
+  font-size: 16px
+

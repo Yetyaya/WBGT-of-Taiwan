@@ -1,0 +1,403 @@
+.fontNum
+  font-weight: bold
+  font-family: "Prompt", system-ui
+.chartNum
+  font-family: "ADLaM Display", system-ui
+
+#app
+  width: 100vw
+  height: 100vh
+  overflow: hidden
+
+.webTitle
+  display: inline-block
+  position: fixed
+  top: var(--top)
+  left: var(--left)
+  z-index: 2
+  pointer-events: none
+  .showTime
+    display: inline-flex
+    margin: 0
+    margin-bottom: 8px
+    line-height: 1.75
+    font-size: 16px
+    span
+      padding: 0 10px
+      background: var(--dark)
+    i
+      padding: 0 10px
+      background: color-mix(in srgb, var(--dark) 75%, #FFF)
+      font-style: normal
+  h1
+    margin-bottom: 5px
+    letter-spacing: 1px
+    svg
+      display: inline-block
+      margin-left: 10px
+      font-size: 32px
+      color: var(--dark)
+      cursor: pointer
+      pointer-events: auto
+      &.show
+        color: var(--alert)
+        &:hover
+          color: color-mix(in srgb, var(--alert) 90%, #FFF)
+      &:hover
+        color: var(--alert)
+      &:active
+        color: color-mix(in srgb, var(--alert) 90%, #000)
+  h3
+    margin-bottom: 10px
+    margin-left: 2px
+    line-height: 1
+    font-size: 28px
+
+.explain
+  width: 360px
+  transform: translateY(-5px)
+  margin-top: 12px
+  margin-left: 3px
+  border-radius: 8px
+  color: #111
+  transition: all 0.5s
+  pointer-events: none
+  opacity: 0
+  letter-spacing: 1px
+  &.show
+    transform: translateY(0)
+    opacity: 1
+  .highlight
+    background-image: linear-gradient(180deg, transparent 40%, color-mix(in srgb, var(--notice) 70%, #FFF) 40%)
+
+.info
+  position: fixed
+  bottom: var(--top)
+  left: var(--left)
+  z-index: 0
+  h1
+    .state
+      display: inline-block
+      transform: translateY(-5px)
+      margin-left: 15px
+      padding: 5px 10px 3px
+      font-size: 20px
+      color: var(--bg)
+      letter-spacing: 2px
+      &.default
+        background-color: color-mix(in srgb, var(--default) 80%, #0A6901)
+      &.notice
+        background-color: color-mix(in srgb, var(--notice) 80%, #A37F66)
+      &.alert
+        background-color: var(--alert)
+      &.danger
+        background-color: var(--danger)
+      &.exDanger
+        background-color: var(--exDanger)
+
+.legend
+  position: fixed
+  right: 70px
+  bottom: 50px
+  z-index: 1
+  ul
+    display: flex
+    margin: 0
+    padding: 0
+    list-style: none
+    gap: 20px
+    li
+      display: flex
+      flex-direction: column
+      gap: 0
+      &:nth-child(1)
+        color: color-mix(in srgb, var(--default) 86%, #0A6901)
+      &:nth-child(2)
+        color: color-mix(in srgb, var(--notice) 80%, #A37F66)
+      &:nth-child(3)
+        color: var(--alert)
+      &:nth-child(4)
+        color: var(--danger)
+      &:nth-child(5)
+        color: var(--exDanger)
+      .title
+        display: flex
+        align-items: center
+        svg
+          width: 22px
+          transform: translateY(1px)
+          font-size: 10px
+        span
+          font-size: 16px
+      .note
+        margin-left: 5px
+        font-size: 12px
+        letter-spacing: 1px
+
+.chart
+  height: calc(100vh - var(--top) * 2)
+  display: flex
+  flex-direction: column
+  position: fixed
+  top: var(--top)
+  right: var(--left)
+  z-index: 3
+  overflow: auto
+  transition: all 0.5s
+  opacity: 1
+  gap: 15px
+  &.hide
+    opacity: 0
+    pointer-events: none
+
+.report
+  display: flex
+  flex-direction: column
+  position: relative
+  padding: 15px 20px 20px
+  border-radius: 8px
+  transition: all 0.5s
+  background-color: #E9E9E9
+  opacity: 1
+  &.hide
+    opacity: 0
+    pointer-events: none
+  .close
+    position: absolute
+    top: 12px
+    right: 20px
+    z-index: 1
+    font-size: 26px
+    cursor: pointer
+  .function
+    display: flex
+    flex-direction: column
+    position: relative
+  .title
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 8px
+    h6
+      padding: 0 3px
+  .selectBar
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 10px
+    gap: 10px
+    .customOption
+      display: flex
+      flex-direction: column
+      flex-wrap: wrap
+      align-items: baseline
+      gap: 0 10px
+      span
+        word-break: keep-all
+      small
+        color: #777
+        letter-spacing: 0.5px
+    .selectItem
+      width: 100%
+      display: flex
+      align-items: center
+      gap: 5px
+      svg
+        font-size: 18px
+  #dayChart
+    background-color: #F1F1F1
+    .tick
+      text
+        opacity: 0
+    .xAxis
+      .tick
+        text
+          opacity: 1
+    .warning
+      .warnTextStroke
+        stroke-width: 4px
+        stroke-linecap: round
+        stroke-linejoin: round
+      &.notice
+        circle
+          fill: var(--notice)
+        circle, .warnTextStroke
+          stroke: color-mix(in srgb, var(--notice) 78%, #000)
+      &.alert
+        circle
+          fill: var(--alert)
+        circle, .warnTextStroke
+          stroke: color-mix(in srgb, var(--alert) 78%, #000)
+      &.danger
+        circle
+          fill: var(--danger)
+        circle, .warnTextStroke
+          stroke: color-mix(in srgb, var(--danger) 80%, #000)
+      &.exDanger
+        circle
+          fill: var(--exDanger)
+        circle, .warnTextStroke
+          stroke: color-mix(in srgb, var(--exDanger) 70%, #000)
+      &.empty circle
+        opacity: 0
+
+.recommendation
+  padding: 15px 20px 20px
+  border-radius: 8px
+  transition: all 0.7s
+  transition-delay: 0.2s
+  background-color: #E9E9E9
+  opacity: 1
+  &.hide
+    opacity: 0
+    pointer-events: none
+  h6
+    margin: 10px 0 9px
+    padding: 0 5px
+  ul
+    width: 460px
+    display: flex
+    flex-direction: column
+    margin-top: 8px
+    padding: 5px
+    gap: 5px
+    list-style: none
+    li
+      display: flex
+      align-items: flex-start
+      padding: 3px 5px
+      line-height: 1.5
+      border-radius: 8px
+      gap: 7px
+      background-color: #F6F6F6
+      svg
+        padding-top: 4px
+        font-size: 12px
+        color: #999
+      span
+        line-height: 22px
+        letter-spacing: 1px
+
+.card
+  max-height: calc(100% - 210px)
+  display: flex
+  flex-direction: column
+  position: fixed
+  top: var(--top)
+  right: var(--left)
+  z-index: 2
+  padding: 20px
+  border-radius: 8px
+  transition: all 0.5s
+  background-color: #E9E9E9
+  transform-origin: right bottom
+  opacity: 1
+  &.hide
+    opacity: 0
+    pointer-events: none
+  .hint
+    display: flex
+    flex-direction: column
+    gap: 8px
+    b
+      display: flex
+      align-items: center
+      line-height: 1.2
+      font-size: 20px
+      gap: 5px
+    p
+      min-width: 305px
+      max-width: 305px
+      line-height: 1.4
+  .content
+    height: 100%
+  .title
+    width: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 12px
+    padding: 0 2px
+    b
+      display: flex
+      align-items: center
+      line-height: 1.2
+      font-weight: normal
+      gap: 5px
+    .function
+      font-size: 22px
+      .close
+        position: absolute
+        top: 12px
+        right: 20px
+        z-index: 1
+        font-size: 26px
+        transition: all 0.3s
+        cursor: pointer
+  ul
+    width: 15.89vw
+    height: calc(100% - 30px)
+    min-width: 305px
+    max-width: 305px
+    display: flex
+    flex-wrap: wrap
+    align-content: flex-start
+    padding: 0
+    overflow: auto
+    gap: 5px
+    list-style: none
+    li
+      width: 150px
+      height: 34px
+      display: inline-flex
+      position: relative
+      justify-content: space-between
+      align-items: center
+      overflow: hidden
+      border-radius: 6px
+      user-select: none
+      cursor: pointer
+      gap: 5px
+      background-color: color-mix(in srgb, var(--default) 80%, #FFF)
+      &:hover, &.selected
+        background-color: color-mix(in srgb, var(--selected) 80%, #FFF) !important
+        &::after
+          border-color: var(--selected) !important
+      &.selected
+        pointer-events: none
+      &::after
+        content: ""
+        width: 100%
+        height: 100%
+        box-sizing: border-box
+        position: absolute
+        top: 0
+        left: 0
+        border-radius: 6px
+        border: 2px solid var(--default)
+      span
+        height: 100%
+        display: inline-flex
+        align-items: center
+        padding: 5px 10px
+      .index
+        min-width: 45px
+        justify-content: center
+        background-color: #FFF
+      &.notice
+        background-color: color-mix(in srgb, var(--notice) 80%, #FFF)
+        &::after
+          border-color: color-mix(in srgb, var(--notice) 90%, #000)
+      &.alert
+        background-color: color-mix(in srgb, var(--alert) 80%, #FFF)
+        &::after
+          border-color: var(--alert)
+      &.danger
+        background-color: color-mix(in srgb, var(--danger) 82%, #FFF)
+        &::after
+          border-color: var(--danger)
+      &.exDanger
+        background-color: color-mix(in srgb, var(--exDanger) 90%, #FFF)
+        &::after
+          border-color: var(--exDanger)
+

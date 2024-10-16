@@ -1,0 +1,63 @@
+$counties: countyTaipeiCity, countyNewTaipeiCity, countyYilanCounty, countyKeelungCity, countyHualienCounty, countyTaitungCounty, countyPingtungCounty, countyKaohsiungCity, countyTainanCity, countyChiayiCounty, countyChiayiCity, countyYunlinCounty, countyNantouCounty, countyChanghuaCounty, countyPenghuCounty, countyKinmenCounty, countyTaichungCity, countyMiaoliCounty, countyTaoyuanCity, countyHsinchuCounty, countyHsinchuCity, countyLienchiangCounty
+@each $county in $counties
+  div:has(.#{$county}.default:hover)
+    .#{$county}
+      fill: color-mix(in srgb, var(--default) 90%, #000)
+      .levelIcon path
+        fill: color-mix(in srgb, var(--default) 68%, #000)
+      .countyLabelBg, .levelBg
+        stroke: color-mix(in srgb, var(--default) 60%, #000)
+
+@each $county in $counties
+  div:has(.#{$county}.notice:hover)
+    .#{$county}
+      fill: color-mix(in srgb, var(--notice) 90%, #000)
+      .levelIcon path
+        fill: color-mix(in srgb, var(--notice) 68%, #B2B015)
+      .countyLabelBg, .levelBg
+        stroke: color-mix(in srgb, var(--notice) 60%, #000)
+
+@each $county in $counties
+  div:has(.#{$county}.alert:hover)
+    .#{$county}
+      fill: color-mix(in srgb, var(--alert) 78%, #894949)
+      .levelIcon path
+        fill: color-mix(in srgb, var(--alert) 84%, #9C8278)
+      .countyLabelBg, .levelBg
+        stroke: color-mix(in srgb, var(--alert) 60%, #000)
+
+@each $county in $counties
+  div:has(.#{$county}.danger:hover)
+    .#{$county}
+      fill: color-mix(in srgb, var(--danger) 84%, #520000)
+      .levelIcon path
+        fill: color-mix(in srgb, var(--danger) 70%, #A00000)
+      .countyLabelBg, .levelBg
+        stroke: color-mix(in srgb, var(--danger) 60%, #000)
+
+@each $county in $counties
+  div:has(.#{$county}.exDanger:hover)
+    .#{$county}
+      fill: color-mix(in srgb, var(--exDanger) 92%, #000)
+      .levelIcon path
+        fill: color-mix(in srgb, var(--exDanger) 97%, #FFF)
+      .countyLabelBg, .levelBg
+        stroke: color-mix(in srgb, var(--exDanger) 55%, #000)
+
+@each $county in $counties
+  .#{$county}.selected
+    fill: var(--selected)
+    .countyLabelBg
+      stroke: var(--selected)
+    .levelIcon path
+      fill: color-mix(in srgb, var(--selected) 68%, #B2B015)
+    .countyLabelBg, .levelBg
+      stroke: color-mix(in srgb, var(--selected) 60%, #000)
+  div:has(.#{$county}.selected:hover)
+    .#{$county}
+      fill: color-mix(in srgb, var(--selected) 90%, #000)
+      .levelIcon path
+        fill: color-mix(in srgb, var(--selected) 68%, #B2B015)
+      .countyLabelBg, .levelBg
+        stroke: color-mix(in srgb, var(--selected) 60%, #000)
+
